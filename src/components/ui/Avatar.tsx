@@ -1,7 +1,7 @@
 
 export const Avatar = () => {
 	return (
-		<div>
+		<div className="flex justify-center items-center gap-4 rounded-full bg-[var(--foreground)] p-2 border-1 border-gray-200 cursor-pointer hover:bg-gray-100 transition-all duration-300">
 
 			<svg
 				fill="currentColor"
