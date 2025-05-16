@@ -16,7 +16,7 @@ export const Logo = ({ sizeNumber = 12, hasCompanyName = false }: LogoProps) => 
 				decoding="async"
 			/>
 			{hasCompanyName &&
-				<span className="text-lg font-bold">Athus - Concórdia</span>
+				<span className=" flex text-lg font-bold">Athus - Concórdia</span>
 			}
 		</div>
 	)
