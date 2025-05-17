@@ -1,6 +1,5 @@
 'use client'
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -24,13 +23,13 @@ export const Avatar = () => {
 		<div className="relative" ref={dropdownRef}>
 			<div
 				onClick={() => setOpen(!open)}
-				className="flex justify-center items-center w-12 h-12 bg-[var(--bg-branco)] text-gray-400 mr-2 border border-gray-200 cursor-pointer hover:bg-[var(--color-primary)] hover:text-gray-100 rounded-full transition-all duration-300"
+				className="flex justify-center items-center w-12 h-12 bg-[var(--bg-branco)] text-gray-400 mr-2 border border-gray-200 cursor-pointer hover:bg-[var(--color-primary)] hover:text-gray-100! rounded-full transition-all duration-300"
 			>
 				{!hasImage ? (
 					<svg
 						fill="currentColor"
 						viewBox="0 0 24 24"
-						className="w-6 h-6"
+						className="w-6 h-6 text-[var(--color-primary)] hover:text-white"
 					>
 						<path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
 					</svg>
@@ -44,7 +43,7 @@ export const Avatar = () => {
 			</div>
 
 			{open && (
-				<div className="absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+				<div className="absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-md shadow-sm z-50">
 					<ul className="py-1 text-sm text-gray-700">
 						<li>
 							<Link href="/perfil" >

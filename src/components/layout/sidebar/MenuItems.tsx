@@ -1,4 +1,4 @@
-import { DollarSign, LayoutDashboard, UserRoundPlus } from 'lucide-react';
+import { LayoutDashboard, UserRoundPlus, Wallet } from 'lucide-react';
 import { IMenuItems } from "./types";
 
 export const menuItems: IMenuItems[] = [
@@ -21,7 +21,7 @@ export const menuItems: IMenuItems[] = [
 	},
 	{
 		label: "Financeiro",
-		icon: <DollarSign size={20} />,
+		icon: <Wallet size={20} />,
 		submenu: [
 			{ label: "Boletos", path: "/financial/bills" },
 			{ label: "Cobrança", path: "/financial/charge" },

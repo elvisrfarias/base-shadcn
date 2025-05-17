@@ -31,12 +31,21 @@ interface DataTableProps<TData, TValue> {
 	searchFields?: string[];
 	pageSize?: number;
 	defaultSearsh?: string;
+	defaultColumnVisibility?: VisibilityState;
 }
 
-export function DataTable<TData, TValue>({ columns, data, searchFields = [], pageSize = 10, defaultSearsh = "" }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({
+	columns,
+	data,
+	searchFields = [],
+	pageSize = 12,
+	defaultSearsh = "",
+	defaultColumnVisibility = {},
+}: DataTableProps<TData, TValue>) {
+
 	const [sorting, setSorting] = useState<SortingState>([]);
 	const [globalFilter, setGlobalFilter] = useState(defaultSearsh);
-	const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({});
+	const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(defaultColumnVisibility);
 
 	const table = useReactTable({
 		data,
@@ -75,9 +84,10 @@ export function DataTable<TData, TValue>({ columns, data, searchFields = [], pag
 				table={table}
 				globalFilter={globalFilter}
 				setGlobalFilter={setGlobalFilter}
-				hasButtonView />
+				hasButtonView
+			/>
 
-			<div className="rounded-md border h-134">
+			<div className="rounded-md border h-159">
 				<Table>
 					<TableHeader>
 						{table.getHeaderGroups().map((headerGroup) => (

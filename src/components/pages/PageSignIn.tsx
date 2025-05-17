@@ -16,7 +16,7 @@ export const PageSignIn = () => {
 					</h2>
 				</div>
 
-				<div className="mt-10 sm:mx-auto sm:w-full sm:max-h-lg sm:max-w-sm bg-white p-8 rounded-xl shadow-sm ">
+				<div className="mt-10 sm:mx-auto sm:w-full sm:max-h-lg sm:max-w-sm bg-white p-8 rounded-sm shadow-sm ">
 					<form action="#" method="POST" className="space-y-6">
 						<div>
 							<label
@@ -59,7 +59,7 @@ export const PageSignIn = () => {
 							<Link href={"/dashboard"} >
 								<button
 									type="submit"
-									className="flex w-full justify-center rounded-md bg-[var(--color-primary)] px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-[var(--color-primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
+									className="flex w-full justify-center rounded-md bg-[var(--color-primary)] px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-[var(--color-primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 cursor-pointer"
 								>
 									Entrar
 								</button>

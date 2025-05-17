@@ -54,11 +54,11 @@ export const SideBarMenu = ({ isCollapsed, setIsCollapsed }: ISideBarMenuProps) 
 					<Link key={index} href={item.path || ""}>
 						<div key={index} className="group pt-1">
 							<div
-								className={`flex items-center p-3 cursor-pointer transition-all rounded-xl 
+								className={`flex items-center p-3 cursor-pointer transition-all rounded-sm 
                       ${isCollapsed ? "justify-center" : "gap-2"}
 											${isActive
-										? "bg-[var(--color-primary)] text-white "
-										: "hover:bg-gray-200 text-[--color-text-primary]"}
+										? "bg-gray-200 text-[var(--color-text-primary)]"
+										: "hover:bg-gray-200 text-[var(--color-text-white)] hover:text-[var(--color-text-primary)]"}
 									`}
 								onClick={() => handleMenuClick(index, hasSubmenu)}
 							>
@@ -77,16 +77,16 @@ export const SideBarMenu = ({ isCollapsed, setIsCollapsed }: ISideBarMenuProps) 
 
 							{/* Submenu */}
 							{!isCollapsed && hasSubmenu && openSubmenus[index] && (
-								<ul className="ml-8 text-sm text-[var(--color-text-primary)]">
+								<ul className="ml-8 text-sm text-[var(--color-text-white)]">
 									{item.submenu
 										? item.submenu.map((sub, i) => {
 											const isSubActive = pathname === sub.path;
 											return (
 												<Link key={i} href={sub.path}>
-													<li className={`cursor-pointer rounded-xl p-2
+													<li className={`cursor-pointer rounded-sm p-2 mt-1
 															${isSubActive
-															? "bg-[var(--color-primary)] text-white"
-															: "hover:bg-gray-200 text-[--color-text-primary]"}`}>
+															? "bg-gray-200 text-[var(--color-text-primary)]"
+															: "hover:bg-gray-200 text-[var(--color-text-white)] hover:text-[var(--color-text-primary)]"}`}>
 														{sub.label}
 													</li>
 												</Link>

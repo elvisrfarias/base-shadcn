@@ -1,6 +1,10 @@
 import { DataTable } from "@/components/datatable/DataTable"
 import { UserType, columns } from "./columns"
 
+export const metadata = {
+	title: "Usuários | Athus",
+	description: "Usuários da Athus",
+}
 
 async function getData(): Promise<UserType[]> {
 	// Fetch data from your API here.
@@ -128,7 +132,7 @@ const User = async () => {
 				<p className="text-gray-400 text-sm ">Lista de usuários cadastrados</p>
 			</div>
 
-			<div className="bg-white p-8 h-full rounded-xl shadow-md">
+			<div className="bg-white p-8 h-full rounded-xl shadow-sm">
 				<DataTable
 					columns={columns}
 					data={data}
