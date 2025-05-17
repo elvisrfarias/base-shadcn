@@ -3,7 +3,7 @@
 import { ChevronDown, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { menuItems } from "./MenuItems";
 
 interface ISideBarMenuProps {
@@ -14,6 +14,23 @@ interface ISideBarMenuProps {
 export const SideBarMenu = ({ isCollapsed, setIsCollapsed }: ISideBarMenuProps) => {
 	const [openSubmenus, setOpenSubmenus] = useState<{ [key: number]: boolean }>({});
 	const pathname = usePathname();
+
+	useEffect(() => {
+		if (!isCollapsed) {
+			const openIndexes: { [key: number]: boolean } = {};
+
+			menuItems.forEach((item, index) => {
+				if (item.submenu) {
+					const hasActiveSub = item.submenu.some(sub => sub.path === pathname);
+					if (hasActiveSub) {
+						openIndexes[index] = true;
+					}
+				}
+			});
+
+			setOpenSubmenus(openIndexes);
+		}
+	}, [pathname, isCollapsed]);
 
 	const handleMenuClick = (index: number, hasSubmenu: boolean) => {
 		// Se está recolhido e clicaram em um item com submenu
@@ -68,7 +85,7 @@ export const SideBarMenu = ({ isCollapsed, setIsCollapsed }: ISideBarMenuProps) 
 												<Link key={i} href={sub.path}>
 													<li className={`cursor-pointer rounded-xl p-2
 															${isSubActive
-															? "bg-[var(--color-primary)] text-white "
+															? "bg-[var(--color-primary)] text-white"
 															: "hover:bg-gray-200 text-[--color-text-primary]"}`}>
 														{sub.label}
 													</li>

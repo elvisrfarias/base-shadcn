@@ -24,7 +24,7 @@ export const Avatar = () => {
 		<div className="relative" ref={dropdownRef}>
 			<div
 				onClick={() => setOpen(!open)}
-				className="flex justify-center items-center w-12 h-12 bg-[var(--foreground)] text-gray-400 mr-2 border border-gray-200 cursor-pointer hover:bg-[var(--color-primary)] hover:text-gray-100 rounded-full transition-all duration-300"
+				className="flex justify-center items-center w-12 h-12 bg-[var(--bg-branco)] text-gray-400 mr-2 border border-gray-200 cursor-pointer hover:bg-[var(--color-primary)] hover:text-gray-100 rounded-full transition-all duration-300"
 			>
 				{!hasImage ? (
 					<svg
@@ -35,12 +35,10 @@ export const Avatar = () => {
 						<path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
 					</svg>
 				) : (
-					<Image
+					<img
 						alt="Avatar"
 						src={'/img-athus.png'}
 						className="rounded-full w-12 h-12"
-						width={500}
-						height={500}
 					/>
 				)}
 			</div>

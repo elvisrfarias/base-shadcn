@@ -12,10 +12,10 @@ export const SideBar = () => {
 	const [isCollapsed, setIsCollapsed] = useState(false);
 
 	return (
-		<div className={`bg-[var(--foreground)] h-full transition-all duration-300 flex flex-col border-1 border-gray-200 rounded-xl shadow-sm ${isCollapsed ? "w-16" : "w-64"}`}>
+		<div className={`bg-[var(--bg-branco)] h-full transition-all duration-300 flex flex-col border-1 border-gray-200 rounded-xl shadow-sm ${isCollapsed ? "w-16" : "w-64"}`}>
 
 			<section className="flex items-center h-20 p-4">
-				<Link href="/">
+				<Link href="/dashboard">
 					{isCollapsed
 						? <Logo sizeNumber={9} />
 						: <Logo hasCompanyName />
