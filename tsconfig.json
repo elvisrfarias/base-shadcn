@@ -33,8 +33,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/components/layout/sidebar/MenuItems.tsx"
-, "src/app/not-found.tsx", "src/app/(auth)/layout.js"  ],
+    "src/components/layout/sidebar/MenuItems.tsx",
+    "src/app/(public)/not-found.tsx",
+    "src/app/(private)/layout.js"
+  ],
   "exclude": [
     "node_modules"
   ]

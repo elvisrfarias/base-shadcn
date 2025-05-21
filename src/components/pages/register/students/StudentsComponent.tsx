@@ -1,28 +1,30 @@
 'use client';
 
-import { columnsStudents, StudentsType } from "@/app/(auth)/register/students/columnsStudents";
+import { columnsStudents, StudentsType } from "@/app/(private)/cadastro/alunos/columnsStudents";
 import { CirclePlus } from "lucide-react";
 import { useEffect, useState } from "react";
 import { DataTable } from "../../../datatable/DataTable";
-import { Button } from "../../../ui/button";
 import { SkeletonDataTable } from "../../../datatable/SkeletonDataTable";
+import { Button } from "../../../ui/button";
 
 export const StudentsComponent = () => {
 	const [dados, setDados] = useState<StudentsType[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 
 	const getAlunos = async () => {
-		const res = await fetch("/api/students", {
-			cache: "no-store",
-		});
-		if (!res.ok) throw new Error("Erro ao buscar alunos");
-		const data = await res.json();
-		setDados(data);
-		setIsLoading(false);
+		try {
+			const res = await fetch("/api/students");
+			const data = await res.json();
+
+			setDados(data);
+			setIsLoading(false);
+		} catch (error: any) {
+			throw new Error("Erro ao buscar alunos", error);
+		}
 	};
 
 	useEffect(() => {
-		getAlunos()
+		getAlunos();
 	}, []);
 
 	return (

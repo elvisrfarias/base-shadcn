@@ -1,4 +1,4 @@
-import { StudentsType } from '@/app/(auth)/register/students/columnsStudents';
+import { StudentsType } from '@/app/(private)/cadastro/alunos/columnsStudents';
 import { NextResponse } from 'next/server';
 
 const token = process.env.TOKEN_ACESS_API_ATHUS;
