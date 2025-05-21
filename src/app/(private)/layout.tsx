@@ -1,32 +1,17 @@
-import { LayoutPrincipal } from "@/components/layout/LayoutPrincipal";
+import { LayoutPrincipal } from "@/components/LayoutPrincipal";
 import { ThemeProvider } from "@/context/ThemeContext";
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/style/globals.css";
-
-const geistSans = Geist({
-	variable: "--font-geist-sans",
-	subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-	variable: "--font-geist-mono",
-	subsets: ["latin"],
-});
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Dashboard | Athus",
 	description: "Dashboard Athus",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function CustomLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`}>
-			<body className="antialiased">
-				<ThemeProvider>
-					<LayoutPrincipal>{children}</LayoutPrincipal>
-				</ThemeProvider>
-			</body>
-		</html>
+		<ThemeProvider>
+			<LayoutPrincipal>{children}</LayoutPrincipal>
+		</ThemeProvider>
 	);
 }

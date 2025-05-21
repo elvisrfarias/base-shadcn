@@ -1,15 +1,53 @@
 'use client';
 
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight, Cog, LayoutDashboard, UserRoundPlus, Wallet } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from "react";
-import { menuItems } from "./MenuItems";
-
+import { IMenuItems } from "./types";
 interface ISideBarMenuProps {
 	isCollapsed: boolean;
 	setIsCollapsed: (value: boolean) => void;
 }
+
+const menuItems: IMenuItems[] = [
+	{
+		label: "Dashboard",
+		icon: <LayoutDashboard size={20} />,
+		path: "/dashboard",
+	},
+	{
+		label: "Cadastros",
+		icon: <UserRoundPlus size={20} />,
+		submenu: [
+			{ label: "Alunos", path: "/cadastro/alunos" },
+			{ label: "Professores", path: "/cadastro/professores" },
+			{ label: "Usuários", path: "/cadastro/usuarios" },
+			{ label: "Cursos", path: "/cadastro/cursos" },
+			{ label: "Materiais", path: "/cadastro/materiais" },
+			{ label: "Turmas", path: "/cadastro/turmas" },
+		],
+	},
+	{
+		label: "Financeiro",
+		icon: <Wallet size={20} />,
+		submenu: [
+			{ label: "Boletos", path: "/financeiro/boletos" },
+			{ label: "Cobrança", path: "/financeiro/cobranca" },
+			{ label: "Transações", path: "/financeiro/trancacoes" },
+			{ label: "Despesas", path: "/financeiro/despesas" },
+			{ label: "A pagar", path: "/financeiro/apagar" },
+			{ label: "A receber", path: "/financeiro/areceber" },
+		],
+	},
+	{
+		label: "Configurações",
+		icon: <Cog size={20} />,
+		submenu: [
+			{ label: "Perfil", path: "/config/perfil" },
+		],
+	},
+];
 
 export const SideBarMenu = ({ isCollapsed, setIsCollapsed }: ISideBarMenuProps) => {
 	const [openSubmenus, setOpenSubmenus] = useState<{ [key: number]: boolean }>({});

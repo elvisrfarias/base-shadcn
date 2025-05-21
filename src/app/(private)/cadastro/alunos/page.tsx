@@ -1,9 +1,12 @@
-'use client'
+import { StudentsComponent } from "@/components/pages/cadastro/alunos/StudentsComponent";
+import { Metadata } from "next";
 
-import { StudentsComponent } from "@/components/pages/register/students/StudentsComponent";
+export const metadata: Metadata = {
+	title: "Alunos | Athus",
+	description: "Tela de alunos da Athus",
+};
 
 const Students = () => {
-
 	return (
 		<>
 			<StudentsComponent />

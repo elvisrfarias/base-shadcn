@@ -13,7 +13,7 @@ export const StudentsComponent = () => {
 
 	const getAlunos = async () => {
 		try {
-			const res = await fetch("/api/students");
+			const res = await fetch("/api/alunos");
 			const data = await res.json();
 
 			setDados(data);
