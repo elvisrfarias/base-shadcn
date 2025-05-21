@@ -35,7 +35,5 @@ export const getAlunos = async (): Promise<StudentsType[]> => {
 		}
 	}
 
-	console.log('allAlunos', allAlunos);
-
 	return allAlunos;
 }

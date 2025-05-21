@@ -1,4 +1,4 @@
-import { LayoutDashboard, UserRoundPlus, Wallet } from 'lucide-react';
+import { Cog, LayoutDashboard, UserRoundPlus, Wallet } from 'lucide-react';
 import { IMenuItems } from "./types";
 
 export const menuItems: IMenuItems[] = [
@@ -29,6 +29,13 @@ export const menuItems: IMenuItems[] = [
 			{ label: "Despesas", path: "/financial/expenses" },
 			{ label: "A pagar", path: "/financial/topay" },
 			{ label: "A receber", path: "/financial/toreceive" },
+		],
+	},
+	{
+		label: "Configurações",
+		icon: <Cog size={20} />,
+		submenu: [
+			{ label: "Perfil", path: "/config/profile" },
 		],
 	},
 ];

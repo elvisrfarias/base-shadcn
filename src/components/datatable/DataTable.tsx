@@ -63,7 +63,6 @@ export function DataTable<TData, TValue>({
 		filterFns: {
 			fuzzy: (row, _, search) => {
 				const data = row.original;
-				console.log(data)
 
 				return searchFields.some(field => data[field]?.toString().toLowerCase().includes(search.toLowerCase()));
 			}

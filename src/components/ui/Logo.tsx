@@ -8,7 +8,7 @@ export const Logo = ({ sizeNumber = 12, hasCompanyName = false }: LogoProps) => 
 		<div className="flex items-center gap-4">
 			
 			{hasCompanyName &&
-				<p className=" flex text-lg font-bold text-[var(--color-text-white)]">Athus - Concórdia</p>
+				<p className=" flex text-lg font-bold text-gray-700">Athus - Concórdia</p>
 			}
 		</div>
 	)

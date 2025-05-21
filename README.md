@@ -12,6 +12,7 @@ Projeto para melhoria do uso e visualização dos franqueados, com a proposta de
 - TypeScript 
 - TailwindCSS
 - Shadcn [shadcn](https://ui.shadcn.com/). Que o mesmo já vem com algumas dependências extras.
+- Recharts
 
 
 ---

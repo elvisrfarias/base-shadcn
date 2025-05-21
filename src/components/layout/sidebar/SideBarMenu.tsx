@@ -19,7 +19,7 @@ export const SideBarMenu = ({ isCollapsed, setIsCollapsed }: ISideBarMenuProps) 
 		if (!isCollapsed) {
 			const openIndexes: { [key: number]: boolean } = {};
 
-			menuItems.forEach((item, index) => {
+			menuItems.map((item, index) => {
 				if (item.submenu) {
 					const hasActiveSub = item.submenu.some(sub => sub.path === pathname);
 					if (hasActiveSub) {
@@ -33,12 +33,11 @@ export const SideBarMenu = ({ isCollapsed, setIsCollapsed }: ISideBarMenuProps) 
 	}, [pathname, isCollapsed]);
 
 	const handleMenuClick = (index: number, hasSubmenu: boolean) => {
-		// Se está recolhido e clicaram em um item com submenu
 		if (isCollapsed && hasSubmenu) {
-			setIsCollapsed(false); // Expande
+			setIsCollapsed(false);
 			setTimeout(() => {
 				setOpenSubmenus(prev => ({ ...prev, [index]: true }));
-			}, 300); // Espera a animação expandir
+			}, 300);
 		} else if (hasSubmenu) {
 			setOpenSubmenus(prev => ({ ...prev, [index]: !prev[index] }));
 		}
@@ -50,56 +49,60 @@ export const SideBarMenu = ({ isCollapsed, setIsCollapsed }: ISideBarMenuProps) 
 				const hasSubmenu = !!item.submenu;
 				const isActive = item.path && pathname === item.path;
 
-				return (
-					<Link key={index} href={item.path || ""}>
-						<div key={index} className="group pt-1">
-							<div
-								className={`flex items-center p-3 cursor-pointer transition-all rounded-sm 
-                      ${isCollapsed ? "justify-center" : "gap-2"}
-											${isActive
-										? "bg-gray-200 text-[var(--color-text-primary)]"
-										: "hover:bg-gray-200 text-[var(--color-text-white)] hover:text-[var(--color-text-primary)]"}
-									`}
-								onClick={() => handleMenuClick(index, hasSubmenu)}
-							>
-								<span>{item.icon}</span>
-								{!isCollapsed && (
-									<div className="flex justify-between items-center w-full">
-										<span className="text-sm">{item.label}</span>
-										{hasSubmenu && (
-											<span className="ml-auto">
-												{openSubmenus[index] ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
-											</span>
-										)}
-									</div>
+				const MenuContent = (
+					<div className={`flex items-center p-3 mt-1 cursor-pointer transition-all rounded-xl ${isCollapsed ? "justify-center" : "gap-2"} 
+						${isActive
+							? "bg-[var(--color-primary)] text-white hover:text-gray-200"
+							: "hover:bg-gray-200 text-[var(--color-text-primary)] hover:text-[var(--color-text-primary)]"}
+						`}
+						onClick={() => handleMenuClick(index, hasSubmenu)}
+					>
+						<span>{item.icon}</span>
+						{!isCollapsed && (
+							<div className="flex justify-between items-center w-full">
+								<span className="text-sm">{item.label}</span>
+								{hasSubmenu && (
+									<span className="ml-auto">
+										{openSubmenus[index] ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+									</span>
 								)}
 							</div>
+						)}
+					</div>
+				);
 
-							{/* Submenu */}
-							{!isCollapsed && hasSubmenu && openSubmenus[index] && (
-								<ul className="ml-8 text-sm text-[var(--color-text-white)]">
-									{item.submenu
-										? item.submenu.map((sub, i) => {
-											const isSubActive = pathname === sub.path;
-											return (
-												<Link key={i} href={sub.path}>
-													<li className={`cursor-pointer rounded-sm p-2 mt-1
-															${isSubActive
-															? "bg-gray-200 text-[var(--color-text-primary)]"
-															: "hover:bg-gray-200 text-[var(--color-text-white)] hover:text-[var(--color-text-primary)]"}`}>
-														{sub.label}
-													</li>
-												</Link>
-											);
-										})
-										: null
-									}
-								</ul>
-							)}
-						</div>
-					</Link>
+				return (
+					<div key={index} className="group pt-1">
+						{/* Se tem path direto e não tem submenu, vira Link */}
+						{item.path && !hasSubmenu
+							? <Link href={item.path}> {MenuContent} </Link>
+							: MenuContent
+						}
+
+						{/* Submenu */}
+						{!isCollapsed && hasSubmenu && openSubmenus[index] && (
+							<ul className="ml-8 text-sm text-[var(--color-text-white)]">
+								{item.submenu?.map((sub, i) => {
+									const isSubActive = pathname === sub.path;
+									return (
+										<li key={i}>
+											<Link href={sub.path}>
+												<div className={`cursor-pointer rounded-xl p-3 mt-1 ${isSubActive
+													? "bg-[var(--color-primary)] text-white hover:text-gray-200"
+													: "hover:bg-gray-200 text-[var(--color-text-primary)] hover:text-[var(--color-text-primary)]"}`}
+												>
+													{sub.label}
+												</div>
+											</Link>
+										</li>
+									);
+								})}
+							</ul>
+						)}
+
+					</div>
 				);
 			})}
 		</section>
-	)
-}
+	);
+};
