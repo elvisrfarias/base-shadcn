@@ -4,6 +4,7 @@ import { MiddlewareConfig, NextRequest, NextResponse } from "next/server";
 const publicRoutes = [
 	{ path: '/', whenAuthenticated: 'redirect' },
 	{ path: '/cadastro/alunos', whenAuthenticated: 'next' },
+	{ path: '/dashboard', whenAuthenticated: 'redirect' },
 ] as const
 
 const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = '/';
@@ -15,6 +16,9 @@ export const middleware = (request: NextRequest) => {
 	const publicRoute = publicRoutes.find(route => route.path === path);
 	const authToken = request.cookies.get('token');
 
+	if (path.startsWith('/assets/')) {
+		return NextResponse.next();
+	}
 
 	if (!authToken && publicRoute) {
 		return NextResponse.next();
