@@ -3,7 +3,7 @@
 import { PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from "react";
-import { Logo } from '../ui/Logo';
+import AvatarCustom from '../AvatarCustom';
 import { SideBarMenu } from './SideBarMenu';
 
 
@@ -15,8 +15,12 @@ export const SideBar = () => {
 			<section className="flex items-center h-20 p-4">
 				<Link href="/dashboard">
 					{isCollapsed
-						? <Logo sizeNumber={9} />
-						: <Logo hasCompanyName />
+						? <AvatarCustom />
+						: (
+							<div className="overflow-hidden text-ellipsis whitespace-nowrap">
+								<h3 className="text-lg font-bold text-gray-700">Athus - Concórdia</h3>
+							</div>
+						)
 					}
 				</Link>
 			</section>

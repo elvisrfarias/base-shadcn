@@ -4,7 +4,7 @@ import { OptionsButtonTable } from "@/components/datatable/OptionsButtonTable";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 
-export type StudentsType = {
+export type AlunosType = {
 	id: number;
 	nome: string;
 	responsavel: string;
@@ -25,7 +25,7 @@ export type StudentsType = {
 	ativo: boolean;
 }
 
-export const columnsStudents: ColumnDef<StudentsType>[] = [
+export const columnsAlunos: ColumnDef<AlunosType>[] = [
 	{
 		accessorKey: "id",
 		id: "id",

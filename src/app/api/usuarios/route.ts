@@ -1,7 +1,8 @@
-import { UserType } from "@/app/(private)/cadastro/usuarios/columns"
+
+import { UsuariosType } from "@/components/pages/cadastro/usuarios/ColumnsUsuarios"
 import { NextResponse } from "next/server"
 
-const getData: UserType[] = [
+const getData: UsuariosType[] = [
 	{
 		id: "728ed52f",
 		name: "Elvis Farias",
@@ -116,6 +117,5 @@ const getData: UserType[] = [
 
 
 export const GET = () => {
-	console.log(getData)
 	return NextResponse.json(getData)
 }

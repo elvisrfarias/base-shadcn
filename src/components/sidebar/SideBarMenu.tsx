@@ -44,7 +44,7 @@ const menuItems: IMenuItems[] = [
 		label: "Configurações",
 		icon: <Cog size={20} />,
 		submenu: [
-			{ label: "Perfil", path: "/config/perfil" },
+			{ label: "Perfil", path: "/configuracao/perfil" },
 		],
 	},
 ];

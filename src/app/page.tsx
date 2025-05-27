@@ -1,5 +1,5 @@
-import FormSignIn from "@/components/FormSignIn";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Login | Athus",
@@ -11,14 +11,16 @@ const SignIn = () => {
     <div className="grid grid-cols-12 h-screen w-screen bg-[var(--color-primary)]">
       <div className="flex items-center justify-center col-span-6 bg-[url(/assets/img-idiomas.jpg)] bg-cover bg-center  rounded-r-3xl hidden sm:block" />
 
-      <div className="flex flex-col items-center justify-center bg-[var(--color-primary)] col-span-6">
-        {/* <div className="sm:w-full sm:max-w-sm">
-          <h2 className="text-center text-2xl font-bold tracking-tight text-white mb-4">Entrar</h2>
+      <div className="flex flex-col items-center justify-center bg-[var(--color-primary)] col-span-6 rounded-4xl">
+        <div className="sm:w-full sm:max-w-sm">
 
           <div className="bg-white p-8 rounded-sm shadow-sm">
             <form className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-900">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-900"
+                >
                   Login
                 </label>
                 <input
@@ -32,7 +34,10 @@ const SignIn = () => {
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-900">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-900"
+                >
                   Senha
                 </label>
                 <input
@@ -45,7 +50,6 @@ const SignIn = () => {
                 />
               </div>
 
-              <div>
                 <Link href="/dashboard">
                   <button
                     type="submit"
@@ -54,13 +58,9 @@ const SignIn = () => {
                     Entrar
                   </button>
                 </Link>
-              </div>
             </form>
           </div>
-        </div> */}
-
-
-        <FormSignIn />
+        </div>
 
       </div>
     </div>

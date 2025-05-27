@@ -50,49 +50,6 @@ export default function FormSignIn() {
 	}
 
 	return (
-		<Form {...form}>
-
-			<form
-				title="Formulário de Login"
-				className=" flex flex-col space-y-8 w-112 pt-16 pb-16 p-10 bg-white rounded-3xl"
-				onSubmit={form.handleSubmit(handleSubmit)}
-			>
-
-				<FormField
-					control={form.control}
-					name="username"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Login</FormLabel>
-							<FormControl>
-								<Input type="text" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-
-				<FormField
-					control={form.control}
-					name="password"
-					render={({ field }) => (
-						<FormItem>
-							<FormLabel>Senha</FormLabel>
-							<FormControl>
-								<Input type="password" {...field} />
-							</FormControl>
-							<FormMessage />
-						</FormItem>
-					)}
-				/>
-
-				<Button
-					type="submit"
-					className="font-bold bg-[var(--color-primary)]"
-				>
-					Entrar
-				</Button>
-			</form>
-		</Form>
+		<h1>Oi</h1>
 	)
 }
