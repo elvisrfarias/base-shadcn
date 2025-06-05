@@ -23,6 +23,7 @@ export const SidebarSubmenu = ({
 	handleLogout,
 }: SidebarSubmenuProps) => {
 	const pathname = usePathname();
+
 	const hasSubmenu = !!item.submenu;
 	const isActive = item.path && pathname === item.path;
 
@@ -30,7 +31,7 @@ export const SidebarSubmenu = ({
 		if (isCollapsed || !hasSubmenu || !isOpen) return null;
 
 		return (
-			<ul className="ml-8 text-sm text-[var(--color-text-white)]">
+			<ul className="ml-8 text-sm text-[var(--color-text-white)] font-(family-name:--font-inter) font-semibold">
 				{item.submenu?.map((sub, i) => {
 					const isSubActive = pathname === sub.path;
 					const baseStyle = "cursor-pointer rounded-xl p-3 mt-1";
@@ -41,12 +42,14 @@ export const SidebarSubmenu = ({
 					if (sub.action === "signout") {
 						return (
 							<li key={i}>
-								<div
-									onClick={handleLogout}
-									className={`${baseStyle} text-[var(--color-text-primary)]`}
-								>
-									{sub.label}
-								</div>
+								<Link href={"/"}>
+									<div
+										onClick={handleLogout}
+										className={`${baseStyle} text-[var(--color-text-primary)] hover:text-red-500 ${activeStyle}`}
+									>
+										{sub.label}
+									</div>
+								</Link>
 							</li>
 						);
 					}
@@ -61,15 +64,15 @@ export const SidebarSubmenu = ({
 						</li>
 					);
 				})}
-			</ul>
+			</ul >
 		);
 	};
 
 	const MenuContent = (
 		<div
 			className={`flex items-center p-3 mt-1 cursor-pointer transition-all rounded-xl ${isCollapsed ? "justify-center" : "gap-2"} ${isActive
-				? "bg-[var(--color-primary)] text-white hover:text-gray-200"
-				: "hover:bg-gray-200 text-[var(--color-text-primary)] hover:text-[var(--color-text-primary)]"
+				? "bg-[var(--color-primary)] text-white hover:text-gray-200 font-(family-name:--font-inter) font-semibold"
+				: "hover:bg-gray-200 text-[var(--color-text-primary)] hover:text-[var(--color-text-primary)] font-(family-name:--font-inter) font-semibold"
 				}`}
 			onClick={() => onClick(index, hasSubmenu)}
 		>

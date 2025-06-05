@@ -13,6 +13,10 @@ export const InputFilterTable = ({ table, globalFilter, setGlobalFilter, hasButt
 	return (
 		<div className="flex items-center justify-between py-4">
 			<Input
+				type="search"
+				id="globalFilter"
+				name="globalFilter"
+				aria-label="Filtro global"
 				placeholder="Filtrar..."
 				value={globalFilter}
 				onChange={(event) => setGlobalFilter(event.target.value)}

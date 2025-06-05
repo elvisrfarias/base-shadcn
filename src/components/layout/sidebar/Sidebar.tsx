@@ -7,7 +7,7 @@ import { useState } from "react";
 import { SidebarMenu } from './SidebarMenu';
 
 
-export const SideBar = () => {
+export const Sidebar = () => {
 	const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
 
 	return (

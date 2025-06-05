@@ -86,14 +86,14 @@ export function DataTable<TData, TValue>({
 				hasButtonView
 			/>
 
-			<div className="rounded-md border h-159">
+			<div className="rounded-md border h-159 font-(family-name:--font-inter)">
 				<Table>
-					<TableHeader>
+					<TableHeader >
 						{table.getHeaderGroups().map((headerGroup) => (
 							<TableRow key={headerGroup.id}>
 								{headerGroup.headers.map((header) => {
 									return (
-										<TableHead key={header.id}>
+										<TableHead key={header.id} className="font-semibold">
 											{header.isPlaceholder
 												? null
 												: flexRender(
