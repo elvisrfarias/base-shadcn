@@ -1,9 +1,9 @@
 'use client';
 
+import AvatarCustom from '@/components/AvatarCustom';
 import { PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from "react";
-import AvatarCustom from '../AvatarCustom';
 import { SideBarMenu } from './SideBarMenu';
 
 

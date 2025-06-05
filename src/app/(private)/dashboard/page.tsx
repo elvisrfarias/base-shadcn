@@ -1,5 +1,5 @@
-import Desempenho from "@/components/Desempenho";
-import StatsCard from "@/components/StartCard";
+import Desempenho from "@/components/charts/Desempenho";
+import StatsCard from "@/components/dashboard/StartCard";
 import { BookCopy, Flame, LocateFixed, Sparkles, User } from "lucide-react";
 import { Metadata } from "next";
 

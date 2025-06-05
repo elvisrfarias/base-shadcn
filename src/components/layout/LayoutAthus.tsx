@@ -4,7 +4,8 @@ import { useTheme } from '@/context/ThemeContext';
 import { ReactNode } from 'react';
 import { SideBar } from './sidebar/SideBar';
 
-export const LayoutPrincipal = ({ children }: Readonly<{ children: ReactNode }>) => {
+
+export const LayoutAthus = ({ children }: Readonly<{ children: ReactNode }>) => {
 	const { theme } = useTheme();
 
 	return (

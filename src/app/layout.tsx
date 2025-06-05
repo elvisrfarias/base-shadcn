@@ -1,7 +1,10 @@
 import { ThemeProvider } from "@/context/ThemeContext";
 import "@/style/globals.css";
 import type { Metadata } from "next";
+import { getServerSession } from "next-auth";
 import { Poppins } from "next/font/google";
+import { redirect } from "next/navigation";
+import { nextAuthOptions } from "./api/auth/[...nextauth]/route";
 
 
 const poppins = Poppins({
@@ -15,7 +18,13 @@ export const metadata: Metadata = {
   description: "Dashboard Athus",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession(nextAuthOptions);
+
+  if (session) {
+    return redirect('/dashboard');
+  }
+
   return (
     <html lang="pt-BR" className={`${poppins.variable} `}>
       <body className="antialiased" cz-shortcut-listen="true">
