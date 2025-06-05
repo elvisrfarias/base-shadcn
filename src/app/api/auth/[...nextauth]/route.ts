@@ -25,11 +25,11 @@ export const nextAuthOptions: NextAuthOptions = {
 
 				const user = await response.json();
 
-				if (response.ok && user) {
-					return user;
-				} else {
+				if (!response.ok || !user) {
 					return 'Usuário ou senha inválidos';
 				}
+
+				return user;
 			}
 		})
 	],

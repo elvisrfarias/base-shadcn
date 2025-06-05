@@ -1,5 +1,6 @@
 import { LayoutAthus } from "@/components/layout/LayoutAthus";
 import { ThemeProvider } from "@/context/ThemeContext";
+import NextAuthSessionProvider from "@/providers/sessionProvider";
 import "@/style/globals.css";
 import type { Metadata } from "next";
 import { getServerSession } from "next-auth";
@@ -17,9 +18,12 @@ export default async function CustomLayout({ children }: { children: React.React
 	if (!session) {
 		return redirect('/');
 	}
+
 	return (
 		<ThemeProvider>
-			<LayoutAthus>{children}</LayoutAthus>
+			<NextAuthSessionProvider session={session}>
+				<LayoutAthus>{children}</LayoutAthus>
+			</NextAuthSessionProvider>
 		</ThemeProvider>
 	);
 }

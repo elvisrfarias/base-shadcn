@@ -1,6 +1,5 @@
 'use client';
 
-import { getServerSession } from "next-auth";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { SyntheticEvent, useState } from "react";
@@ -27,7 +26,6 @@ const FormSingIn = () => {
 		});
 
 		if (result?.error) {
-			console.log(result)
 			setErrorMessage({
 				status: result.status,
 				message: "Usuário ou senha incorreta"
