@@ -1,6 +1,7 @@
 'use client'
 
 import { OptionsButtonTable } from "@/components/datatable/OptionsButtonTable";
+import { Badge } from "@/components/ui/badge";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 
@@ -176,7 +177,15 @@ export const columnsAlunos: ColumnDef<AlunosType>[] = [
 		cell: ({ row }) => {
 			const itemOption = row.original
 			return (
-				itemOption.ativo ? "Sim" : "Não"
+				<Badge
+					variant={"secondary"}
+					className={itemOption.ativo
+						? "bg-green-500 text-white font-bold"
+						: "bg-red-500 text-white font-bold"
+					}
+				>
+					{itemOption.ativo ? "Sim" : "Não"}
+				</Badge>
 			)
 		}
 	},

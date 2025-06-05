@@ -3,7 +3,7 @@ import FormSingIn from "@/components/FormSingIn";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { nextAuthOptions } from "./api/auth/[...nextauth]/route";
+import { nextAuthOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata: Metadata = {
   title: "Login | Athus",

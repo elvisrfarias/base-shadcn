@@ -34,7 +34,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/sidebar/MenuItems.tsx",
-    "src/app/(public)/not-found.tsx",
+    "src/app/not-found.tsx",
     "src/app/(private)/layout.js"
   ],
   "exclude": [

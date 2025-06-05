@@ -15,6 +15,8 @@ export const PaginationTable = <TData,>({ table }: PaginationTableProps<TData>) 
 
 			<Button
 				size="sm"
+				variant={!table.getCanPreviousPage() ? 'outline' : 'default'}
+				className="cursor-pointer"
 				onClick={() => table.previousPage()}
 				disabled={!table.getCanPreviousPage()}
 			>
@@ -22,6 +24,8 @@ export const PaginationTable = <TData,>({ table }: PaginationTableProps<TData>) 
 			</Button>
 			<Button
 				size="sm"
+				className="cursor-pointer"
+				variant={!table.getCanNextPage() ? 'outline' : 'default'}
 				onClick={() => table.nextPage()}
 				disabled={!table.getCanNextPage()}
 			>

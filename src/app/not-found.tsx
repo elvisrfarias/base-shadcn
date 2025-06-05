@@ -1,29 +1,29 @@
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
 
-export default function Custom404() {
+const PageNotFoundRoot = () => {
+
 	return (
-		<div className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8 border border-gray-200 rounded-sm">
-			<div className="text-center">
-				<p className="text-xl font-semibold text-[var(--color-primary)]">404</p>
+		<main className="flex h-screen justify-center align-center gap-32 bg-[var(--background)] rounded-sm">
+			<Image
+				src="/assets/img-404.svg"
+				alt="Imagem que indica página não encontrada (404)"
+				width={400}
+				height={400}
+				className="mx-auto m-0 sm:mb-0 sm:mx-0"
+			/>
+			<section className="flex flex-col text-left justify-center align-center">
+				<span className="text-7xl font-semibold text-[var(--color-primary)]">404</span>
+				<h1 className="mt-4 text-2sm font-semibold text-gray-900 sm:text-6xl">Página não encontrada</h1>
+				<p className="mt-6 text-pretty text-gray-500">Desculpe, não conseguimos encontrar a página que você está procurando</p>
 
-				<h1 className="mt-4 text-2sm font-semibold tracking-tight text-balance text-gray-900 sm:text-6xl">
-					Página não encontrada
-				</h1>
-				<p className="mt-6 text-pretty text-gray-500">
-					Desculpe, não conseguimos encontrar a página que você está procurando.
-				</p>
-
-
-				<div className="mt-10 flex items-center justify-center gap-x-6">
-					<Link
-						href="/"
-						className="rounded-md bg-[var(--color-primary)] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[var(--color-primary)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-					>
-						Voltar para a página inicial
-					</Link>
-
-				</div>
-			</div>
-		</div>
+				<Button className="w-62 mt-24 text-sm font-semibold text-white">
+					<Link href="/">Voltar para a página inicial</Link>
+				</Button>
+			</section>
+		</main>
 	)
 }
+
+export default PageNotFoundRoot;

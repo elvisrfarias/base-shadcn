@@ -4,12 +4,17 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { SyntheticEvent, useState } from "react";
 
+interface ErrorMessage {
+	status: number;
+	message: string;
+}
+
 const FormSingIn = () => {
+	const router = useRouter();
+
 	const [username, setUsername] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
-	const [errorMessage, setErrorMessage] = useState<{ status: number, message: string } | null>(null);
-
-	const router = useRouter();
+	const [errorMessage, setErrorMessage] = useState<ErrorMessage | null>(null);
 
 	const handleClick = async (e: SyntheticEvent) => {
 		e.preventDefault();
@@ -38,7 +43,7 @@ const FormSingIn = () => {
 
 	return (
 		<div className="grid grid-cols-12 h-screen w-screen bg-[var(--color-primary)]">
-			<div className="flex items-center justify-center col-span-6 bg-[url(/assets/img-idiomas.jpg)] bg-cover bg-center  rounded-r-3xl hidden sm:block" />
+			<div className="flex items-center justify-center col-span-6 bg-[url(/assets/img-idiomas.jpg)] bg-cover bg-center  rounded-r-3xl sm:block" />
 
 			<div className="flex flex-col items-center justify-center bg-[var(--color-primary)] col-span-6 rounded-4xl">
 				<div className="sm:w-full sm:max-w-sm">
@@ -104,4 +109,4 @@ const FormSingIn = () => {
 	);
 }
 
-export default FormSingIn
+export default FormSingIn;

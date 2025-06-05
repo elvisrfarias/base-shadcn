@@ -4,7 +4,7 @@ import AvatarCustom from '@/components/AvatarCustom';
 import { PanelLeftClose, PanelLeftOpen } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from "react";
-import { SideBarMenu } from './SideBarMenu';
+import { SidebarMenu } from './SidebarMenu';
 
 
 export const SideBar = () => {
@@ -24,7 +24,12 @@ export const SideBar = () => {
 					}
 				</Link>
 			</section>
-			<SideBarMenu isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+
+			<SidebarMenu
+				isCollapsed={isCollapsed}
+				setIsCollapsed={setIsCollapsed}
+			/>
+
 			<footer
 				className="flex justify-center p-3 items-center text-[var(--color-text-primary)] hover:bg-[var(--color-primary)] hover:text-white  rounded-xl transition cursor-pointer mr-3"
 				onClick={() => setIsCollapsed(!isCollapsed)}
