@@ -26,7 +26,7 @@ export function ViewColumnButton<TData>({ table }: ViewColumnButtonProps<TData>)
 				<div className="flex items-center">
 					<HoverCard>
 						<HoverCardTrigger>
-							<Columns3 size={24} className="cursor-pointer text-[var(--color-primary)]" />
+							<Columns3 size={24} className="cursor-pointer text-primary" />
 						</HoverCardTrigger>
 						<HoverCardContent>
 							Selecione as colunas que deseja visualizar.

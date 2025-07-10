@@ -42,10 +42,10 @@ const FormSingIn = () => {
 	};
 
 	return (
-		<div className="grid grid-cols-12 h-screen w-screen bg-[var(--color-primary)]">
+		<div className="grid grid-cols-12 h-screen w-screen bg-primary">
 			<div className="flex items-center justify-center col-span-6 bg-[url(/assets/img-idiomas.jpg)] bg-cover bg-center  rounded-r-3xl sm:block" />
 
-			<div className="flex flex-col items-center justify-center bg-[var(--color-primary)] col-span-6 rounded-4xl">
+			<div className="flex flex-col items-center justify-center bg-primary col-span-6 rounded-4xl">
 				<div className="sm:w-full sm:max-w-sm">
 
 					<div className="bg-white p-8 rounded-sm shadow-sm">
@@ -88,7 +88,7 @@ const FormSingIn = () => {
 
 							<button
 								type="submit"
-								className="w-full rounded-md bg-[var(--color-primary)] px-3 py-2 text-white font-semibold hover:opacity-90 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+								className="w-full rounded-md bg-primary px-3 py-2 text-white font-semibold hover:opacity-90 transition cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
 								onClick={handleClick}
 								disabled={!username || !password}
 								title={!username || !password ? "Preencha os campos" : "Entrar"}

@@ -13,7 +13,7 @@ const Professores = () => {
 	return (
 		<div className="w-full mt-6">
 			<div className="flex justify-between mb-8">
-				<h1 className="text-3xl font-bold text-[var(--color-text-primary)]">Professores</h1>
+				<h1 className="text-3xl font-bold text-(--color-text-primary)">Professores</h1>
 				<Button size="lg" className="cursor-pointer" >
 					<CirclePlus />
 					Cadastrar

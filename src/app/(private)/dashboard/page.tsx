@@ -14,7 +14,7 @@ const Dashboard = () => {
 		<>
 			<div className="w-full mt-6">
 				<div className="flex justify-between mb-8">
-					<h1 className="text-3xl font-bold text-[var(--color-text-primary)]">Dashboard</h1>
+					<h1 className="text-3xl font-bold text-(--color-text-primary)">Dashboard</h1>
 				</div>
 
 				<div className="flex justify-between  mb-8">

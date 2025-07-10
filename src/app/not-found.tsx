@@ -5,7 +5,7 @@ import Link from "next/link";
 const PageNotFoundRoot = () => {
 
 	return (
-		<main className="flex h-screen justify-center align-center gap-32 bg-[var(--background)] rounded-sm">
+		<main className="flex h-screen justify-center align-center gap-32 bg-background rounded-sm">
 			<Image
 				src="/assets/img-404.svg"
 				alt="Imagem que indica página não encontrada (404)"
@@ -14,7 +14,7 @@ const PageNotFoundRoot = () => {
 				className="mx-auto m-0 sm:mb-0 sm:mx-0"
 			/>
 			<section className="flex flex-col text-left justify-center align-center">
-				<span className="text-7xl font-semibold text-[var(--color-primary)]">404</span>
+				<span className="text-7xl font-semibold text-primary">404</span>
 				<h1 className="mt-4 text-2sm font-semibold text-gray-900 sm:text-6xl">Página não encontrada</h1>
 				<p className="mt-6 text-pretty text-gray-500">Desculpe, não conseguimos encontrar a página que você está procurando</p>
 

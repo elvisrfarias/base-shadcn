@@ -31,13 +31,13 @@ export const SidebarSubmenu = ({
 		if (isCollapsed || !hasSubmenu || !isOpen) return null;
 
 		return (
-			<ul className="ml-8 text-sm text-[var(--color-text-white)] font-(family-name:--font-inter) font-semibold">
+			<ul className="ml-8 text-sm text-(--color-text-white) font-(family-name:--font-inter) font-semibold">
 				{item.submenu?.map((sub, i) => {
 					const isSubActive = pathname === sub.path;
 					const baseStyle = "cursor-pointer rounded-xl p-3 mt-1";
 					const activeStyle = isSubActive
-						? "bg-[var(--color-primary)] text-white hover:text-gray-200"
-						: "hover:bg-gray-200 text-[var(--color-text-primary)] hover:text-[var(--color-text-primary)]";
+						? "bg-primary text-white hover:text-gray-200"
+						: "hover:bg-gray-200 text-(--color-text-primary) hover:text-(--color-text-primary)";
 
 					if (sub.action === "signout") {
 						return (
@@ -45,7 +45,7 @@ export const SidebarSubmenu = ({
 								<Link href={"/"}>
 									<div
 										onClick={handleLogout}
-										className={`${baseStyle} text-[var(--color-text-primary)] hover:text-red-500 ${activeStyle}`}
+										className={`${baseStyle} text-(--color-text-primary) hover:text-red-500 ${activeStyle}`}
 									>
 										{sub.label}
 									</div>
@@ -71,8 +71,8 @@ export const SidebarSubmenu = ({
 	const MenuContent = (
 		<div
 			className={`flex items-center p-3 mt-1 cursor-pointer transition-all rounded-xl ${isCollapsed ? "justify-center" : "gap-2"} ${isActive
-				? "bg-[var(--color-primary)] text-white hover:text-gray-200 font-(family-name:--font-inter) font-semibold"
-				: "hover:bg-gray-200 text-[var(--color-text-primary)] hover:text-[var(--color-text-primary)] font-(family-name:--font-inter) font-semibold"
+				? "bg-primary text-white hover:text-gray-200 font-(family-name:--font-inter) font-semibold"
+				: "hover:bg-gray-200 text-(--color-text-primary) hover:text-(--color-text-primary) font-(family-name:--font-inter) font-semibold"
 				}`}
 			onClick={() => onClick(index, hasSubmenu)}
 		>

@@ -16,7 +16,7 @@ const StatsCard = ({ title, value, change, icon, className }: StatsCardProps) =>
 				<div className='flex flex-col justify-between h-32'>
 					<h3 className="text-sm font-medium text-gray-500">{title}</h3>
 					<p className="text-2xl font-bold mt-1">{value}</p>
-					{change && <p className="text-xs text-[var(--color-primary)] mt-1">{change}</p>}
+					{change && <p className="text-xs text-primary mt-1">{change}</p>}
 
 				</div>
 				{icon && (

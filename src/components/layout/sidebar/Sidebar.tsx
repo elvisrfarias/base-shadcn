@@ -11,7 +11,7 @@ export const Sidebar = () => {
 	const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
 
 	return (
-		<div className={`bg-[var(--background)] h-full flex ml-2 mr-2 flex-col transition-all duration-300 ${isCollapsed ? "w-16" : "w-64"} divide-x-1`}>
+		<div className={`bg-background h-full flex ml-2 mr-2 flex-col transition-all duration-300 ${isCollapsed ? "w-16" : "w-64"} divide-x`}>
 			<section className="flex items-center h-20 p-4">
 				<Link href="/dashboard">
 					{isCollapsed
@@ -31,7 +31,7 @@ export const Sidebar = () => {
 			/>
 
 			<footer
-				className="flex justify-center p-3 items-center text-[var(--color-text-primary)] hover:bg-[var(--color-primary)] hover:text-white  rounded-xl transition cursor-pointer mr-3"
+				className="flex justify-center p-3 items-center text-(--color-text-primary) hover:bg-primary hover:text-white  rounded-xl transition cursor-pointer mr-3"
 				onClick={() => setIsCollapsed(!isCollapsed)}
 			>
 				{isCollapsed
