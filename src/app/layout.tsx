@@ -2,9 +2,8 @@ import { ThemeProvider } from "@/context/ThemeContext";
 import NextAuthSessionProvider from "@/providers/sessionProvider";
 import "@/style/globals.css";
 import type { Metadata } from "next";
-import { getServerSession } from "next-auth";
 import { Open_Sans, Poppins } from "next/font/google";
-import { nextAuthOptions } from "./api/auth/[...nextauth]/route";
+import { auth } from "@/auth";
 
 
 const poppins = Poppins({
@@ -25,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await getServerSession(nextAuthOptions);
+  const session = await auth();
 
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${openSans.variable}`}>

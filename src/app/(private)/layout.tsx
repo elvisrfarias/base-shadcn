@@ -1,11 +1,10 @@
+import { auth } from "@/auth";
 import { LayoutAthus } from "@/components/layout/LayoutAthus";
 import { ThemeProvider } from "@/context/ThemeContext";
 import NextAuthSessionProvider from "@/providers/sessionProvider";
 import "@/style/globals.css";
 import type { Metadata } from "next";
-import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { nextAuthOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata: Metadata = {
 	title: "Dashboard | Athus",
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function CustomLayout({ children }: { children: React.ReactNode }) {
-	const session = await getServerSession(nextAuthOptions);
+	const session = await auth();
 
 	if (!session) {
 		return redirect('/');

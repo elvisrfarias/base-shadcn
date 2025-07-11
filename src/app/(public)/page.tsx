@@ -1,9 +1,8 @@
 
 import FormSingIn from "@/components/FormSingIn";
 import { Metadata } from "next";
-import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { nextAuthOptions } from "../api/auth/[...nextauth]/route";
+import { auth } from "@/auth";
 
 export const metadata: Metadata = {
   title: "Login | Athus",
@@ -11,9 +10,8 @@ export const metadata: Metadata = {
 };
 
 const SignIn = async () => {
-  const session = await getServerSession(nextAuthOptions);
+  const session = await auth();
 
-  // Se já estiver logado, redireciona para o dashboard
   if (session) {
     return redirect("/dashboard");
   }
