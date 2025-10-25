@@ -1,28 +1,23 @@
-import { auth } from "@/auth";
-import { LayoutAthus } from "@/components/layout/LayoutAthus";
-import { ThemeProvider } from "@/context/ThemeContext";
-import NextAuthSessionProvider from "@/providers/sessionProvider";
 import "@/style/globals.css";
+
+import { ReactNode } from "react";
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
+import { ThemeProvider } from "@/context/ThemeContext";
+import { LayoutBase } from "@/components/layout/LayoutBase";
 
 export const metadata: Metadata = {
-	title: "Dashboard | Athus",
-	description: "Dashboard Athus",
+  title: "Dashboard",
+  description: "Dashboard",
 };
 
-export default async function CustomLayout({ children }: { children: React.ReactNode }) {
-	const session = await auth();
-
-	if (!session) {
-		return redirect('/');
-	}
-
-	return (
-		<ThemeProvider>
-			<NextAuthSessionProvider session={session}>
-				<LayoutAthus>{children}</LayoutAthus>
-			</NextAuthSessionProvider>
-		</ThemeProvider>
-	);
+export default async function CustomLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  return (
+    <ThemeProvider>
+      <LayoutBase>{children}</LayoutBase>
+    </ThemeProvider>
+  );
 }

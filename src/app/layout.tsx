@@ -1,10 +1,9 @@
-import { ThemeProvider } from "@/context/ThemeContext";
-import NextAuthSessionProvider from "@/providers/sessionProvider";
 import "@/style/globals.css";
+
+import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Open_Sans, Poppins } from "next/font/google";
-import { auth } from "@/auth";
-
+import { ThemeProvider } from "@/context/ThemeContext";
 
 const poppins = Poppins({
   variable: "--font-poppins",
@@ -19,19 +18,19 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Dashboard | Athus",
-  description: "Dashboard Athus",
+  title: "Dashboard | base",
+  description: "Dashboard base para iniciar novos projetos",
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await auth();
-
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${openSans.variable}`}>
       <body className="antialiased" cz-shortcut-listen="true">
-        <ThemeProvider>
-          <NextAuthSessionProvider session={session}>{children}</NextAuthSessionProvider>
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

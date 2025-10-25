@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { cn } from '@/lib/utils';
+import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface ChartCardProps {
   title: string;
@@ -9,7 +9,13 @@ interface ChartCardProps {
   className?: string;
 }
 
-const ChartCard = ({ title, subtitle, children, actions, className }: ChartCardProps) => {
+const ChartCard = ({
+  title,
+  subtitle,
+  children,
+  actions,
+  className,
+}: ChartCardProps) => {
   return (
     <div className={cn("chart-container", className)}>
       <div className="flex justify-between items-center mb-4">
