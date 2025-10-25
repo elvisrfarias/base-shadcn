@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { IconCirclePlusFilled, IconMail, type Icon } from "@tabler/icons-react";
 import {
   SidebarGroup,
-  SidebarGroupContent,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarGroupContent,
 } from "@/components/ui/sidebar";
 
 export function NavMain({

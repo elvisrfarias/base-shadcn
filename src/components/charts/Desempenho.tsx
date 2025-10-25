@@ -1,27 +1,27 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Table,
-  TableBody,
+  TableRow,
   TableCell,
+  TableBody,
   TableHead,
   TableHeader,
-  TableRow,
 } from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Bar,
-  BarChart,
-  CartesianGrid,
-  Legend,
   Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
   XAxis,
   YAxis,
+  Legend,
+  Tooltip,
+  BarChart,
+  LineChart,
+  CartesianGrid,
+  ResponsiveContainer,
 } from "recharts";
 
 const Desempenho = () => {
