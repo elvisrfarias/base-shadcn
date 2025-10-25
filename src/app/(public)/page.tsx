@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import FormSingIn from "@/components/FormSingIn";
 
 export const metadata: Metadata = {
   title: "Login",
@@ -7,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const SignIn = async () => {
-  return <FormSingIn />;
+  return <></>;
 };
 
 export default SignIn;
